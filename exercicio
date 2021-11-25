@@ -1,0 +1,16 @@
+Uma forma de obter usuários é por meio do marketing que
+tem diversas fontes (Source) que com a internet atinge diversos
+estados. Exiba a quantidade de estados (State) distintos
+agrupados por fonte de usuários da tabela People que está no
+Sample Dataset.
+Quais foram as fontes que tiveram usuários de menos
+estados distintos?
+
+select count(distinct STATE) as STATE, SOURCE  from PEOPLE group by SOURCE order by STATE DESC
+
+
+
+Exiba os 10 primeiros produtos das tabelas “ID” e “Titles” que está
+no Sample Dataset renomeando a coluna “Titles” para “Produto”.
+
+select ID, TITLE as PRODUTO from PRODUCTS limit 10
