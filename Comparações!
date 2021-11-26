@@ -1,0 +1,22 @@
+Retorne todos os produtos que tenham Paper no nome (Title) na
+tabela Products que está no Sample Dataset..
+
+select TITLE from PRODUCTS where TITLE iLIKE '%Paper%'
+
+
+Exibir a soma do preço de cada produto (Price) da tabela Products que
+está no Sample Dataset que custe mais que 90.00, agrupando por sua
+categoria, em ordem crescente da soma. Apresentar como resposta duas
+colunas, a primeira com o nome da categoria e a segunda com o somatório
+dos valores renomeado para “Total”.
+
+select category, sum(price) as total from PRODUCTS where PRICE > 90 group by CATEGORY
+
+
+
+Obtenha todos os pedidos do product_id 22 em que a quantidade está
+entre 3 e 5 itens da tabela Orders que está no Sample Dataset..
+
+select * from ORDERS where PRODUCT_ID = 22 and QUANTITY > 2 and QUANTITY < 6
+
+
