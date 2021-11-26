@@ -1,0 +1,35 @@
+Retorne os nomes dos produtos da tabela Products que está no
+Sample Dataset cujo o ID está contido nesta lista (12, 49, 31)..
+
+select TITLE from PRODUCTS where ID in (12, 49, 31)
+
+
+
+
+
+
+Exibir quantidade de pessoas, filtrando por estados (State) = NE
+agrupando por fontes (Sources) em ordem crescente da tabela People que
+está no Sample Dataset.
+
+select SOURCE, count(id) as id from PEOPLE where STATE = 'NE' group by SOURCE order by id
+
+
+
+
+
+
+Para uma maior satisfação dos clientes e melhoria contínua, é
+importante também ter controle dos comentários de quem classificou mal o
+seu produto. Faça uma Query para exibir o produto (Product ID) que mais
+teve nota (Rating) igual a 1 para auxiliar na tomada de decisão de uma
+possível mudança no produto considerando a tabela Reviews que está no
+Sample Dataset
+
+select PRODUCT_ID, count(id) from REVIEWS  where RATING = 1 group by PRODUCT_ID order by count(id) desc
+
+
+Exibir todos os comentários “Body” dos casos que a nota foi 1 para o
+produto com mais notas 1
+
+select body from REVIEWS where RATING = 1 and PRODUCT_ID = (select PRODUCT_ID from REVIEWS  where RATING = 1 group by PRODUCT_ID order by count(id) desc limit 1)
