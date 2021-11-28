@@ -1,0 +1,56 @@
+Exiba as datas de nascimento e criação dos usuários, e obtenha o
+número de dias entre essas duas datas considerando a tabela People que
+está no Sample Dataset.
+
+select BIRTH_DATE, CREATED_AT, datediff('day',BIRTH_DATE,CREATED_AT) as difference_days from PEOPLE
+
+
+
+Faça uma comparação mensal da quantidade de pedidos,
+faturamento total e ticket médio dos pedidos do ano de 2019 levando em
+consideração a tabela Orders que está no Sample Dataset
+
+select month(CREATED_AT) as mes, count(id) as quantidade_pedidos, avg(TOTAL) as ticket_media from ORDERS where year(CREATED_AT) = 2019 group by month(CREATED_AT);
+
+
+
+
+
+
+Retorne todas as linhas de Avaliações (Reviews), e una com a tabela
+Products que estão no Sample Dataset para obter as colunas do produto
+avaliado. Em seguida, filtre essa tabela Products para que só sejam
+retornadas as colunas dos produtos 1 a 10 (dica: faça uma sub-query no
+próprio join), e compare os resultados obtidos usando inner join ou left join.
+Apresente resultado final com todas as linhas da tabela Review, sendo que
+apenas as que contém product_id de 1 a 10 terão preenchidas suas colunas
+da tabela Product
+
+select *  from REVIEWS left join (select * from PRODUCTS where id < 11 and id > 0) as PRODUCTS on REVIEWS.PRODUCT_ID = PRODUCTS.id
+
+
+
+
+Obtenha, para todos os Reviews de Rating = 4, uma lista decrescente
+de quantidade de reviews por Título do Produto utilizando as tabelas
+Reviews e Products que estão no Sample Dataset.
+
+select PRODUCTS.TITLE, count(REVIEWS.id)  from REVIEWS inner join PRODUCTS where REVIEWS.RATING = 4 group by PRODUCTS.id
+
+
+
+
+Refaça o exercício do Left Join (exibir todas as avaliações, com colunas
+de produto apenas de produtos_id entre 1 e 10), mas agora utilizando a lógica
+contrária com o right join: selecionar primeiro todos os Products entre 1 e 10,
+unir com o right join a tabela Review e retornando todas as linhas da tabela
+Review com as colunas de produto preenchidas apenas para os produtos_id
+entre 1 e 10.
+
+select *  from REVIEWS right join (select * from PRODUCTS where id < 11 and id > 0) as PRODUCTS on REVIEWS.PRODUCT_ID = PRODUCTS.id
+
+
+
+
+
+
