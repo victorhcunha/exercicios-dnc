@@ -6,3 +6,6 @@ aplicados (de produto e data da review).
 Em seguida, aplique as operações necessárias nessa tabela que você
 criou com a CTE
 
+
+with produto_mes as (select TITLE, REVIEWS.CREATED_AT from REVIEWS inner join PRODUCTS on REVIEWS.PRODUCT_ID = PRODUCTS.ID where year(REVIEWS.CREATED_AT) = 2018 order by month(REVIEWS.CREATED_AT))
+select month(CREATED_AT) as month, count(TITLE) as QUANTITY from produto_mes group by month(CREATED_AT)
