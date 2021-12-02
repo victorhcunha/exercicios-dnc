@@ -1,0 +1,8 @@
+No nosso dataset Sample Dataset, informe a quantidade de Reviews para cada produto de preço maior ou igual a 90, das categorias: Doohickey, Gizmo, Gadget e Widget, respectivamente.
+
+select count(PRODUCT_ID) from REVIEWS inner join PRODUCTS on REVIEWS.PRODUCT_ID = PRODUCTS.id where PRODUCTS.CATEGORY in ('Doohickey', 'Gizmo', 'Gadget', 'Widget') and PRODUCTS.price >= 90 group by PRODUCTS.CATEGORY
+
+
+Qual é a quantidade total (Quantity) de itens vendidos com product_id 22 do nosso dataset Sample Dataset?
+
+select sum(QUANTITY) from ORDERS where product_id = 22
