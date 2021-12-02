@@ -1,0 +1,8 @@
+Nosso objetivo é obter a quantidade de reviews por mês no ano de
+2018, dos produtos que contém Wallet no nome. Para isso, utilize uma CTE
+para criar primeiramente a tabela, com todas as colunas necessárias (de
+Review, e products que estão no Sample Dataset), e com os filtros já
+aplicados (de produto e data da review).
+Em seguida, aplique as operações necessárias nessa tabela que você
+criou com a CTE
+
